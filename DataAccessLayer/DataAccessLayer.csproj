@@ -51,17 +51,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAboutDal.cs" />
+    <Compile Include="Abstract\ICategoryDal.cs" />
+    <Compile Include="Abstract\IContactDal.cs" />
+    <Compile Include="Abstract\IContentDal.cs" />
+    <Compile Include="Abstract\IHeadingDalcs.cs" />
+    <Compile Include="Abstract\IWriterDal.cs" />
+    <Compile Include="Concrete\AboutDal.cs" />
+    <Compile Include="Concrete\CategoryDal.cs" />
+    <Compile Include="Concrete\ContactDal.cs" />
+    <Compile Include="Concrete\ContentDal.cs" />
+    <Compile Include="Concrete\HeadingDal.cs" />
     <Compile Include="Concrete\ProjeContext.cs" />
+    <Compile Include="Concrete\WriterDal.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Abstract\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DevFramework.Core\DevFramework.Core.csproj">
+      <Project>{a55632c0-e12f-4108-90ad-1c11f56869bb}</Project>
+      <Name>DevFramework.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
       <Project>{a9002078-63ef-4f33-a9c1-8403f17e6065}</Project>
       <Name>EntityLayer</Name>

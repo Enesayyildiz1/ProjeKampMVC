@@ -1,4 +1,5 @@
-﻿using Core.Entities;
+﻿
+using DevFramework.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-   public  class About:IEntity
+    public class About : IEntity
     {
         public int AboutId { get; set; }
         public string AboutDetails { get; set; }
