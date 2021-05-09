@@ -14,6 +14,9 @@ namespace DevFramework.Core.Aspects.PostSharp.ValidationAspects
     public class FluentValidationAspect:OnMethodBoundaryAspect
     {
         Type _validatorType;
+
+       
+
         public FluentValidationAspect(Type validatorType)
         {
             _validatorType = validatorType;

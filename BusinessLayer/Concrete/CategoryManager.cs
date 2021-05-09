@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DevFramework.Core.Aspects.PostSharp.ValidationAspects;
+using BusinessLayer.ValidationRules.FluentValidation;
 
 namespace BusinessLayer.Concrete
 {
@@ -18,7 +20,7 @@ namespace BusinessLayer.Concrete
         {
             _categoryDal = categoryDal;
         }
-
+        [FluentValidationAspect(typeof(CategoryValidator))]
         public IResult Add(Category category)
         {
             _categoryDal.Add(category);

@@ -1,0 +1,39 @@
+﻿
+@model ProjeKampMVC.UI.Models.CategoryListViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetAllCategories</title>
+</head>
+<body style="margin:20px;">
+    <table class="table table-hover">
+        <tr>
+            <th>Id</th>
+            <th>Adı</th>
+            <th>Açıklama</th>
+            <th>Durum</th>
+            <th>Güncelle</th>
+
+        </tr>
+
+
+        @foreach (var category in Model.Categories)
+        {
+            <tr>
+                <td>@category.CategoryId</td>
+                <td>@category.CategoryName</td>
+                <td>@category.CategoryDescription</td>
+                <td>@category.CategoryStatus</td>
+            </tr>
+        }
+
+    </table> <p>@Model.Message</p>
+    <button class="btn btn-active"><a href="~/Category/AddCategory">Kategori Ekle</a></button>
+</body>
+</html>
