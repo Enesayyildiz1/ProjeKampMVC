@@ -1,7 +1,8 @@
 ﻿
 @model ProjeKampMVC.UI.Models.CategoryListViewModel
 @{
-    Layout = null;
+    ViewBag.Title = "GetAllCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -18,19 +19,24 @@
             <th>Adı</th>
             <th>Açıklama</th>
             <th>Durum</th>
+            <th>Başlıklar</th>
             <th>Güncelle</th>
+            <th>Sil</th>
 
         </tr>
 
 
         @foreach (var category in Model.Categories)
         {
-            <tr>
-                <td>@category.CategoryId</td>
-                <td>@category.CategoryName</td>
-                <td>@category.CategoryDescription</td>
-                <td>@category.CategoryStatus</td>
-            </tr>
+    <tr>
+        <td>@category.CategoryId</td>
+        <td>@category.CategoryName</td>
+        <td>@category.CategoryDescription</td>
+        <td>@category.CategoryStatus</td>
+        <td><a class="btn btn-info" href="#">Başlıklar</a></td>
+        <td><a class="btn btn-primary" href="/Category/GetCategory/@category.CategoryId">Güncelle</a></td>
+        <td><a href="/Category/Delete/@category.CategoryId.ToString()" class="btn btn-danger" >Sil</a></td>
+    </tr>
         }
 
     </table> <p>@Model.Message</p>

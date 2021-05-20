@@ -29,7 +29,8 @@ namespace BusinessLayer.Concrete
 
         public IResult Delete(Category category)
         {
-            throw new NotImplementedException();
+            _categoryDal.Delete(category);
+            return new SuccessResult("Ürün silindi");
         }
 
         public IDataResult<List<Category>> GetAll()
@@ -39,12 +40,15 @@ namespace BusinessLayer.Concrete
 
         public IDataResult<Category> GetById(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Category>(_categoryDal.Get(x => x.CategoryId == id),"Kategori listelendi");
         }
 
         public IResult Update(Category category)
         {
-            throw new NotImplementedException();
+            _categoryDal.Update(category);
+            return new SuccessResult("Kategori başarıyla güncellendi!");
         }
+
+      
     }
 }

@@ -10,5 +10,7 @@ namespace ProjeKampMVC.UI.Models
     {
         public List<Category> Categories { get; set; }
         public string Message { get; set; }
+        public bool Success { get; set; }
+
     }
 }

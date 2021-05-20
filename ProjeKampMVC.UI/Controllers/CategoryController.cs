@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules.FluentValidation;
+using Core.Utilities.Results;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DevFramework.Core.CrossCuttingConcerns.Validation.FluentValidation;
@@ -18,19 +19,20 @@ namespace ProjeKampMVC.UI.Controllers
     public class CategoryController : Controller
     {
         // GET: Category
-        CategoryManager categoryService = new CategoryManager(new CategoryDal());
+        CategoryManager _categoryService = new CategoryManager(new CategoryDal());
 
         public ActionResult Index()
         {
            
             return View();
         }
-        public ActionResult GetAllCategories()
+        
+        public ActionResult GetAllCategory()
         {
             var model = new CategoryListViewModel
             {
-                Categories =categoryService.GetAll().Data,
-                Message=categoryService.GetAll().Message
+                Categories =_categoryService.GetAll().Data,
+                Message=_categoryService.GetAll().Message
             };
             
             return View(model);
@@ -48,8 +50,8 @@ namespace ProjeKampMVC.UI.Controllers
 
             if (result.IsValid)
             {
-                categoryService.Add(category); 
-                return RedirectToAction("GetAllCategories");
+                _categoryService.Add(category); 
+                return RedirectToAction("GetAllCategory");
             }
             else
             {
@@ -59,6 +61,23 @@ namespace ProjeKampMVC.UI.Controllers
                 }
             }
             return View(category);
+        }
+        public ActionResult Delete(string id)
+        {
+            var deletedCategory = _categoryService.GetById(Convert.ToInt32( id) );
+            _categoryService.Delete(deletedCategory.Data);
+            return RedirectToAction("GetAllCategory");
+        }
+        public ActionResult GetCategory(int id)
+        {
+            var updatedCategory = _categoryService.GetById(id);
+            
+            return View(updatedCategory.Data);
+        }
+        public ActionResult CategoryUpdate(Category category)
+        {
+            _categoryService.Update(category);
+            return RedirectToAction("GetAllCategory");
         }
     }
 }

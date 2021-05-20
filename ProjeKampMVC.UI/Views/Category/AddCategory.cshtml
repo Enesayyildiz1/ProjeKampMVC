@@ -1,6 +1,7 @@
 ﻿@model EntityLayer.Concrete.Category
 @{
-    Layout = null;
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -11,18 +12,19 @@
 </br>
 @using (Html.BeginForm("AddCategory", "Category", FormMethod.Post))
 {
-    <div class="form-group">
-        @Html.Label("Kategori Adı")
-        @Html.TextBoxFor(x => x.CategoryName)
-        @Html.ValidationMessageFor(x => x.CategoryName)
-
-  <br />
+<div class="form-group">
+    @Html.Label("Kategori Adı")
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CategoryName)
     
-        @Html.Label("Kategori Açıklama")
-        @Html.TextBoxFor(x => x.CategoryDescription)
 
-        <button type="submit" class="btn btn-primary">Ekle</button>
-    </div>
+    <br />
+
+    @Html.Label("Kategori Açıklama")
+    @Html.TextBoxFor(x => x.CategoryDescription, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CategoryDescription)
+    <button type="submit" class="btn btn-primary">Ekle</button>
+</div>
 }
 @*<div style="margin:20px;">
     <form method="post">
