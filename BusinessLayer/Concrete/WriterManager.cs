@@ -19,6 +19,20 @@ namespace BusinessLayer.Concrete
             _writerDal = writerDal;
         }
 
+        public IResult Add(Writer writer)
+        {
+            writer.RegisterDate = DateTime.Now;
+            _writerDal.Add(writer);
+            return new SuccessResult("Yazar başarıyla kaydedildi");
+        }
+
+        public IResult Delete(Writer writer)
+        {
+            
+            _writerDal.Delete(writer);
+            return new SuccessResult("Yazar başarıyla silindi");
+        }
+
         public IDataResult<List<Writer>> GetAll()
         {
             return new SuccessDataResult<List<Writer>>(_writerDal.GetList());

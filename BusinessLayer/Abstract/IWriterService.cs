@@ -11,5 +11,7 @@ namespace BusinessLayer.Abstract
     public interface IWriterService
     {
         IDataResult<List<Writer>> GetAll();
+        IResult Add(Writer writer);
+        IResult Delete(Writer writer);
     }
 }
