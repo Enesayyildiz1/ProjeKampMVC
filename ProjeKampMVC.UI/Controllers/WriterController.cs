@@ -52,6 +52,17 @@ namespace ProjeKampMVC.UI.Controllers
             }
             return View(writer);
         }
-
+        [HttpGet]
+        public ActionResult EditWriter(int id)
+        {
+            var writer = _writerService.GetById(id);
+            return View(writer.Data);
+        }
+        [HttpPost]
+        public ActionResult EditWriter(Writer writer)
+        {
+            _writerService.Update(writer);
+            return RedirectToAction("Index");
+        }
     }
 }

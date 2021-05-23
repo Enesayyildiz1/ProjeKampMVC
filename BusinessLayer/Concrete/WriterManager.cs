@@ -37,5 +37,17 @@ namespace BusinessLayer.Concrete
         {
             return new SuccessDataResult<List<Writer>>(_writerDal.GetList());
         }
+
+        public IDataResult<Writer> GetById(int id)
+        {
+          
+            return new SuccessDataResult<Writer>(  _writerDal.Get(x=>x.WriterId==id),"Yazar geldi");
+        }
+
+        public IResult Update(Writer writer)
+        {
+            _writerDal.Update(writer);
+            return new SuccessResult("Yazar güncellendi");
+        }
     }
 }

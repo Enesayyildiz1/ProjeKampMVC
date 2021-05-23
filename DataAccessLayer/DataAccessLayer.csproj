@@ -67,12 +67,19 @@
     <Compile Include="Migrations\202105211538249_m1.Designer.cs">
       <DependentUpon>202105211538249_m1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105231432309_writer_title_added.cs" />
+    <Compile Include="Migrations\202105231432309_writer_title_added.Designer.cs">
+      <DependentUpon>202105231432309_writer_title_added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202105211538249_m1.resx">
       <DependentUpon>202105211538249_m1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105231432309_writer_title_added.resx">
+      <DependentUpon>202105231432309_writer_title_added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

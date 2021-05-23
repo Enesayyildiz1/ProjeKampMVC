@@ -10,8 +10,10 @@ namespace BusinessLayer.Abstract
 {
     public interface IWriterService
     {
+        IDataResult<Writer> GetById(int id);
         IDataResult<List<Writer>> GetAll();
         IResult Add(Writer writer);
         IResult Delete(Writer writer);
+        IResult Update(Writer writer);
     }
 }
