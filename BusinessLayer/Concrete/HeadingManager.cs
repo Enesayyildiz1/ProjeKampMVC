@@ -20,6 +20,7 @@ namespace BusinessLayer.Concrete
 
         public IResult Add(Heading heading)
         {
+            heading.HeadingTime = DateTime.Now;
             _headingDal.Add(heading);
             return new SuccessResult("Başlık eklendi");
         }
@@ -33,6 +34,11 @@ namespace BusinessLayer.Concrete
         public IDataResult<List<Heading>> GetAll()
         {
             return new SuccessDataResult<List<Heading>>(_headingDal.GetList());
+        }
+
+        public IDataResult<List<Heading>> GetAll2()
+        {
+            return new SuccessDataResult<List<Heading>>(_headingDal.GetHeadingClearly());
         }
 
         public IDataResult<Heading> GetById(int id)

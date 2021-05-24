@@ -15,5 +15,6 @@ namespace BusinessLayer.Abstract
         IResult Add(Heading heading);
         IResult Delete(Heading heading);
         IResult Update(Heading heading);
+        IDataResult<List<Heading>> GetAll2();
     }
 }
