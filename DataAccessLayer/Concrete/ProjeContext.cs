@@ -13,7 +13,7 @@ namespace DataAccessLayer.Concrete
 
         public ProjeContext() 
         {
-            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.LazyLoadingEnabled = true;
         }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Category> Categories { get; set; }

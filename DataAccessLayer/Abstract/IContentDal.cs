@@ -11,5 +11,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IContentDal:IEntityRepository<Content>
     {
+        List<Content> GetContentsByHeading(int headingId);
     }
 }

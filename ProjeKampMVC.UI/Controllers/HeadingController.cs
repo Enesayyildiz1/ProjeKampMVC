@@ -55,5 +55,20 @@ namespace ProjeKampMVC.UI.Controllers
             _headingManager.Add(heading);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult EditHeading(string
+            headingId)
+        {
+            GetCategory();
+            GetWriter();
+            var head = _headingManager.GetById(Convert.ToInt32(headingId));
+            return View(head.Data);
+        }
+        [HttpPost]
+        public ActionResult EditHeading(Heading heading)
+        {
+            _headingManager.Update(heading);
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -43,7 +43,7 @@ namespace BusinessLayer.Concrete
 
         public IDataResult<Heading> GetById(int id)
         {
-            return new SuccessDataResult<Heading>(_headingDal.Get(x => x.CategoryId == id),"Geldi");
+            return new SuccessDataResult<Heading>(_headingDal.Get(x => x.HeadingId == id),"Geldi");
         }
 
         public IResult Update(Heading heading)
