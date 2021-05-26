@@ -142,6 +142,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
@@ -2286,6 +2287,7 @@
     <Content Include="Views\Heading\AddHeading.cshtml" />
     <Content Include="Views\Content\ContentByHeading.cshtml" />
     <Content Include="Views\Heading\EditHeading.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 @{ string color = "";}
+@{ bool status;}
 
 <!DOCTYPE html>
 <html>
@@ -58,7 +59,7 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-
+                            status = item.HeadingStatus;
                             if (item.Category.CategoryName == "Yazılım")
                             {
                                 color = "badge badge-danger";
@@ -87,20 +88,23 @@
                                         </li>
                                     </ul>
                                 </td>
-                                <td class="project-state">
+                                <td>
+                                    <strong>@item.HeadingStatus</strong>
+                                </td>
+                                <td >
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
 
                                             <span class="@if (color.IsEmpty())
-                                        {
-                                          color= "badge badge-info";
+                                            {
+                                                color = "badge badge-info";
 
-                                        }
-                                        else
-                                        {
+                                            }
+                                            else
+                                            {
                                             @color;
-                                            color = "";
-                                        }
+                                                color = "";
+                                            }
                                            ">@item.Category.CategoryName</span>
                                     </li>
 
@@ -118,17 +122,31 @@
                                     </i>
                                     Tartışmalar
                                 </a>
-                                <a href="/Heading/EditHeading/@item.HeadingId.ToString()" class="btn btn-info btn-sm">
+                            </td>
+                            <td>
+                                <a>
+                                    @Html.ActionLink("Düzenle", "EditHeading", "Heading", new { headingId = item.HeadingId }, new { @class = "btn btn-info btn-sm" })
                                     <i class="fas fa-pencil-alt">
                                     </i>
-                                    Düzenle
+
                                 </a>
-                                <a class="btn btn-danger btn-sm" href="#">
+                            <td>
+                            <td style="margin:20px">
+                                <a>
+                                    @if (status == true)
+                                    {
+                                        @Html.ActionLink("Pasif Et", "PassiveHeading", "Heading", new { headingId = item.HeadingId }, new { @class = "btn btn-danger btn-sm" })
+                                    }
+                                    else
+                                    {
+                                        @Html.ActionLink("Aktif Et", "ActiveHeading", "Heading", new { headingId = item.HeadingId }, new { @class = "btn btn-danger btn-sm" })
+                                    }
                                     <i class="fas fa-trash">
                                     </i>
                                     Sil
                                 </a>
                             </td>
+                            
                         </tr>
                     }
 
@@ -145,9 +163,9 @@
 </html>
 
 <script>
-    
+
     $('#table-heading').DataTable({});
-    
+
 </script>
 
 

@@ -56,18 +56,31 @@ namespace ProjeKampMVC.UI.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public ActionResult EditHeading(string
-            headingId)
+        public ActionResult EditHeading(int headingId)
         {
             GetCategory();
             GetWriter();
-            var head = _headingManager.GetById(Convert.ToInt32(headingId));
+            var head = _headingManager.GetById(headingId);
             return View(head.Data);
         }
         [HttpPost]
         public ActionResult EditHeading(Heading heading)
         {
             _headingManager.Update(heading);
+            return RedirectToAction("Index");
+        }
+        public ActionResult PassiveHeading(int headingId)
+        {
+            var head = _headingManager.GetById(headingId);
+            head.Data.HeadingStatus = false;
+            _headingManager.Delete(head.Data);
+            return RedirectToAction("Index");
+        }
+        public ActionResult ActiveHeading(int headingId)
+        {
+            var head = _headingManager.GetById(headingId);
+            head.Data.HeadingStatus = true;
+            _headingManager.Delete(head.Data);
             return RedirectToAction("Index");
         }
     }

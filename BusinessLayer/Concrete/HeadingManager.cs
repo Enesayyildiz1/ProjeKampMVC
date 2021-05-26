@@ -27,7 +27,8 @@ namespace BusinessLayer.Concrete
 
         public IResult Delete(Heading heading)
         {
-            _headingDal.Delete(heading);
+           
+            _headingDal.Update(heading);
             return new SuccessResult("Başlık silindi");
         }
 
