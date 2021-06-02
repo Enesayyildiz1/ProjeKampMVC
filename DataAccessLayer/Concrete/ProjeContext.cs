@@ -15,6 +15,7 @@ namespace DataAccessLayer.Concrete
         {
             this.Configuration.LazyLoadingEnabled = true;
         }
+        public DbSet<Message> Messages { get; set; }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Content> Contents { get; set; }

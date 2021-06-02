@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
+using EntityLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +12,19 @@ namespace ProjeKampMVC.UI.Controllers
     public class AboutController : Controller
     {
         // GET: About
+
+        AboutManager _aboutManager = new AboutManager(new AboutDal());
         public ActionResult Index()
         {
-            return View();
+            var aboutModels = _aboutManager.GetAll().Data;
+            return View(aboutModels);
+        }
+        public ActionResult Update(About about)
+        {
+           
+            _aboutManager.Update(about);
+           
+            return RedirectToAction("Index");
         }
     }
 }

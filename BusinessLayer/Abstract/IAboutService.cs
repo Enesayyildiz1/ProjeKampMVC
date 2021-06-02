@@ -10,7 +10,8 @@ namespace BusinessLayer.Abstract
 {
     public interface IAboutService
     {
-        IDataResult<List<About>> GetAll();
+        IDataResult<About> GetById(int id);
+        IDataResult<About> GetAll();
         IResult Add(About content);
         IResult Delete(About content);
         IResult Update(About content);

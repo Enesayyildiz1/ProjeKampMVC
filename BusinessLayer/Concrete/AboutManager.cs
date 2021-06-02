@@ -21,22 +21,30 @@ namespace BusinessLayer.Concrete
 
         public IResult Add(About content)
         {
-            throw new NotImplementedException();
+            _aboutDal.Add(content);
+            return new SuccessResult();
         }
 
         public IResult Delete(About content)
         {
-            throw new NotImplementedException();
+            _aboutDal.Delete(content);
+            return new SuccessResult();
         }
 
-        public IDataResult<List<About>> GetAll()
+        public IDataResult<About> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<About>(_aboutDal.GetList().FirstOrDefault());
+        }
+
+        public IDataResult<About> GetById(int id)
+        {
+            return new SuccessDataResult<About>(_aboutDal.Get(x => x.AboutId == id));
         }
 
         public IResult Update(About content)
         {
-            throw new NotImplementedException();
+            _aboutDal.Update(content);
+            return new SuccessResult();
         }
     }
 }

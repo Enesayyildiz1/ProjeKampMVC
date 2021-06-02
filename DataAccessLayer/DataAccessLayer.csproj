@@ -55,12 +55,14 @@
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDalcs.cs" />
+    <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\AboutDal.cs" />
     <Compile Include="Concrete\CategoryDal.cs" />
     <Compile Include="Concrete\ContactDal.cs" />
     <Compile Include="Concrete\ContentDal.cs" />
     <Compile Include="Concrete\HeadingDal.cs" />
+    <Compile Include="Concrete\MessageDal.cs" />
     <Compile Include="Concrete\ProjeContext.cs" />
     <Compile Include="Concrete\WriterDal.cs" />
     <Compile Include="Migrations\202105211538249_m1.cs" />
@@ -83,6 +85,10 @@
     <Compile Include="Migrations\202105251643296_added_statusheading.Designer.cs">
       <DependentUpon>202105251643296_added_statusheading.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106021515448_messageentity.cs" />
+    <Compile Include="Migrations\202106021515448_messageentity.Designer.cs">
+      <DependentUpon>202106021515448_messageentity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105251643296_added_statusheading.resx">
       <DependentUpon>202105251643296_added_statusheading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106021515448_messageentity.resx">
+      <DependentUpon>202106021515448_messageentity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
