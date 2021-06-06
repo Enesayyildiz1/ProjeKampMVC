@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <!-- /.navbar -->
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>İstatistik Sayfası</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <div class="card" style="width: 18rem; float:left;margin-right:20px;">
+        <div class="card-body" style="background-color:red">
+            <h1 class="card-title" style="color: white; font-size: 40px">@ViewBag.CategoryCount</h1>
+
+            <p class="card-text" style="        color: white;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 15px
+">Toplam kategori Sayısı</p>
+
+        </div>
+    </div>
+    @*ViewBag.CategoryCount = categoryCount;
+    ViewBag.HeadingOfSoftware = headingOfSoftware;
+    ViewBag.WritersNameContainsALetter = writersNameContainsALetter;
+    ViewBag.Difference = difference;
+    ViewBag.CategoryNameToHaveMaxHeading = categoryNameToHaveMaxHeading;*@
+    <div class="card" style="        width: 18rem;
+        float: left;
+        margin-right: 20px
+">
+        <div class="card-body" style="background-color:dodgerblue">
+            <h1 class="card-title" style="color: white; font-size: 40px"> @ViewBag.HeadingOfSoftware</h1>
+
+            <p class="card-text" style="        color: white;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 15px
+">Başlık tablosunda "yazılım kategorisine ait başlık sayısı"</p>
+
+        </div>
+    </div>
+    <div class="card" style="        width: 18rem;
+        float: left;
+        margin-right: 20px
+">
+        <div class="card-body" style="background-color:aqua">
+            <h1 class="card-title" style="color: white; font-size: 40px"> @ViewBag.WritersNameContainsALetter</h1>
+
+            <p class="card-text" style="        color: white;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 15px
+">Yazar Adında "a" harfi geçen yazar sayısı</p>
+
+        </div>
+    </div>
+    <div class="card" style="        width: 18rem;
+        float: left;
+        margin-right: 20px
+">
+        <div class="card-body" style="background-color:darkviolet">
+            <h1 class="card-title" style="color: white; font-size: 40px"> @ViewBag.Difference</h1>
+
+            <p class="card-text" style="        color: white;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 15px
+">En fazla başlığa sahip kategori adı</p>
+
+        </div>
+    </div>
+    <div class="card" style="        width: 18rem;
+        float: left;
+        margin-right: 20px
+">
+        <div class="card-body" style="background-color:blue">
+            <h1 class="card-title" style="color: white; font-size: 40px">@ViewBag.CategoryNameToHaveMaxHeading</h1>
+
+            <p class="card-text" style="color:white;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size:15px">Kategori tablosunda durumu true olan kategoriler ile false olan kategoriler arasındaki sayısal fark</p>
+
+        </div>
+    </div>
+</body>
+</html>
+
+
+

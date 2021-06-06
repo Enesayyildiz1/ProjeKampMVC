@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using EntityLayer.Concrete;
+using BusinessLayer.ValidationRules.FluentValidation;
+using FluentValidation.Results;
 
 namespace ProjeKampMVC.UI.Controllers
 {
@@ -52,8 +54,23 @@ namespace ProjeKampMVC.UI.Controllers
         [HttpPost]
         public ActionResult AddHeading(Heading heading)
         {
-            _headingManager.Add(heading);
-            return RedirectToAction("Index");
+
+            HeadingValidator validations = new HeadingValidator();
+            ValidationResult result = validations.Validate(heading);
+
+            if (result.IsValid)
+            {
+                _headingManager.Add(heading);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (ValidationFailure failer in result.Errors)
+                {
+                    ModelState.AddModelError(failer.PropertyName, failer.ErrorMessage);
+                }
+            }
+            return View();
         }
         [HttpGet]
         public ActionResult EditHeading(int headingId)

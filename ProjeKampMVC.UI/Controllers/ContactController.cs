@@ -11,17 +11,25 @@ namespace ProjeKampMVC.UI.Controllers
     public class ContactController : Controller
     {
         ContactManager _contactManager = new ContactManager(new ContactDal());
+        MessageManager _messageManager = new MessageManager(new MessageDal());
         // GET: Contact
         public ActionResult Index()
         {
+            messagesCount();
             var liste=_contactManager.GetAll();
             return View(liste.Data);
         }
         public ActionResult GetContactDetails(int id)
         {
+            messagesCount();
             var contactValues = _contactManager.GetById(id);
             return View(contactValues.Data);
         }
-      
+        public void messagesCount()
+        {
+            ViewBag.numberOfCommunicationMessages = _contactManager.GetAll().Data.Count;
+            ViewBag.numberOfInMessages = _messageManager.GetAll().Data.Count;
+            ViewBag.numberOfSendMessages = _messageManager.GetAllSendBox().Data.Count;
+        }      
     }
 }

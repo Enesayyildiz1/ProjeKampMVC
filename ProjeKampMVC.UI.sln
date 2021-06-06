@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFramework.Core", "DevFramework.Core\DevFramework.Core.csproj", "{A55632C0-E12F-4108-90AD-1C11F56869BB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "istatistikViewKlasoru", "istatistikViewKlasoru", "{C342D4F1-99DD-41BB-B905-5ADE84958A27}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\OneDrive\Masaüstü\ödev.PNG = ..\..\..\OneDrive\Masaüstü\ödev.PNG
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
