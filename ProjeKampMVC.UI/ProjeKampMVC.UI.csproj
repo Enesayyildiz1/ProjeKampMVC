@@ -147,6 +147,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\HeadingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
@@ -159,6 +160,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="404-page\dist\index.html" />
+    <Content Include="404-page\dist\script.js" />
+    <Content Include="404-page\dist\style.css" />
+    <Content Include="404-page\license.txt" />
+    <Content Include="404-page\src\index.html" />
     <Content Include="AdminLTE-3.0.4\.gitignore" />
     <Content Include="AdminLTE-3.0.4\build\config\postcss.config.js" />
     <Content Include="AdminLTE-3.0.4\build\config\rollup.config.js" />
@@ -2259,6 +2265,9 @@
     <Content Include="AdminLTE-3.0.4\plugins\sweetalert2-theme-bootstrap-4\bootstrap-4.scss" />
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.js.map" />
     <Content Include="AdminLTE-3.0.4\README.md" />
+    <Content Include="404-page\README.markdown" />
+    <Content Include="404-page\src\script.babel" />
+    <Content Include="404-page\src\style.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2300,6 +2309,8 @@
     <Content Include="Views\Message\NewMessage.cshtml" />
     <Content Include="Views\Message\CreateSketch.cshtml" />
     <Content Include="Views\Statistic\Index.cshtml" />
+    <Content Include="Views\Message\GetMessageDetails.cshtml" />
+    <Content Include="Views\ErrorPage\Page404.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

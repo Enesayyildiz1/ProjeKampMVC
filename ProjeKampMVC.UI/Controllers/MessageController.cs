@@ -108,5 +108,11 @@ ValidationResult result = validations.Validate(message);
             ViewBag.numberOfInMessages = _messageManager.GetAll().Data.Count;
             ViewBag.numberOfSendMessages = _messageManager.GetAllSendBox().Data.Count;
         }
+        public PartialViewResult GetMessageDetails(int id)
+        {
+            messagesCount();
+            var messageValues = _messageManager.GetById(id);
+            return PartialView(messageValues.Data);
+        }
     }
 }
