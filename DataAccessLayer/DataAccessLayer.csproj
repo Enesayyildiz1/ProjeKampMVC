@@ -56,6 +56,7 @@
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDalcs.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
+    <Compile Include="Abstract\IUserDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\AboutDal.cs" />
     <Compile Include="Concrete\CategoryDal.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Concrete\HeadingDal.cs" />
     <Compile Include="Concrete\MessageDal.cs" />
     <Compile Include="Concrete\ProjeContext.cs" />
+    <Compile Include="Concrete\UserDal.cs" />
     <Compile Include="Concrete\WriterDal.cs" />
     <Compile Include="Migrations\202105211538249_m1.cs" />
     <Compile Include="Migrations\202105211538249_m1.Designer.cs">
@@ -89,6 +91,22 @@
     <Compile Include="Migrations\202106021515448_messageentity.Designer.cs">
       <DependentUpon>202106021515448_messageentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106200842581_user_login.cs" />
+    <Compile Include="Migrations\202106200842581_user_login.Designer.cs">
+      <DependentUpon>202106200842581_user_login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106201504525_confirmpassword.cs" />
+    <Compile Include="Migrations\202106201504525_confirmpassword.Designer.cs">
+      <DependentUpon>202106201504525_confirmpassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106201511312_hash-password.cs" />
+    <Compile Include="Migrations\202106201511312_hash-password.Designer.cs">
+      <DependentUpon>202106201511312_hash-password.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106201555120_a.cs" />
+    <Compile Include="Migrations\202106201555120_a.Designer.cs">
+      <DependentUpon>202106201555120_a.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -110,6 +128,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106021515448_messageentity.resx">
       <DependentUpon>202106021515448_messageentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106200842581_user_login.resx">
+      <DependentUpon>202106200842581_user_login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106201504525_confirmpassword.resx">
+      <DependentUpon>202106201504525_confirmpassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106201511312_hash-password.resx">
+      <DependentUpon>202106201511312_hash-password.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106201555120_a.resx">
+      <DependentUpon>202106201555120_a.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

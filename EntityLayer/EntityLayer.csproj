@@ -78,7 +78,13 @@
     <Compile Include="Concrete\Content.cs" />
     <Compile Include="Concrete\Heading.cs" />
     <Compile Include="Concrete\Message.cs" />
+    <Compile Include="Concrete\Role.cs" />
+    <Compile Include="Concrete\User.cs" />
+    <Compile Include="Concrete\UserRole.cs" />
     <Compile Include="Concrete\Writer.cs" />
+    <Compile Include="DTOs\UserForLoginDto.cs" />
+    <Compile Include="DTOs\UserForRegisterDto.cs" />
+    <Compile Include="DTOs\UserRoleDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +97,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

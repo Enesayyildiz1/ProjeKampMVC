@@ -14,6 +14,7 @@ namespace ProjeKampMVC.UI.Controllers
         // GET: About
 
         AboutManager _aboutManager = new AboutManager(new AboutDal());
+        
         public ActionResult Index()
         {
             var aboutModels = _aboutManager.GetAll().Data;

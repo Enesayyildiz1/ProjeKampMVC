@@ -18,7 +18,7 @@ namespace DevFramework.Core.CrossCuttingConcerns.Security.Web
             string encTicket = FormsAuthentication.Encrypt(authTicket);
             HttpContext.Current.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
         }
-
+          
         private static string CreateAuthTags(string email, string[] roles, string firstName, string lastName,Guid id)
         {
             var stringBuilder = new StringBuilder();
