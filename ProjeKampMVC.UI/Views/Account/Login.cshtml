@@ -31,26 +31,38 @@
                         <div class="img d-flex align-items-center justify-content-center" style="        background-image: url(/AdminLTE-3.0.4/login-form-19/images/bg.jpg);"></div>
                         <h3 class="text-center mb-0">Welcome</h3>
                         <p class="text-center">Sign in by entering the information below</p>
-                        @using (Html.BeginForm("Login","Account",FormMethod.Post))
+                        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
                         {
+
+                            <div class="form-group">
+                                <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
+                                <input type="text" class="form-control" placeholder="UserName" name="UserName" required>
+                                @if (ViewBag.ErrorMessage == "Kullanıcı yok")
+                                {
+
+                                    <a onclick="mesaj()" style="color:red;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Böyle Bir Kullanıcı Yok</a>
+                                }
+
+                            </div>
+                            <div class="form-group">
+                                <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
+                                <input type="password" class="form-control" placeholder="Password" name="Password" required> 
+                                @if (ViewBag.ErrorMessage == "Şifreler Eşleşmiyor")
+                                {
+
+                                    <a onclick="mesaj()" style="color:red;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Şifreler Eşleşmiyor</a>
+                                }
+                            </div>
                            
-                                <div class="form-group">
-                                    <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
-                                    <input type="text" class="form-control" placeholder="UserName" name="UserName"required>
+                            <div class="form-group d-md-flex">
+                                <div class="w-100 text-md-right">
+                                    <a href="#">Forgot Password</a>
                                 </div>
-                                <div class="form-group">
-                                    <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
-                                    <input type="password" class="form-control" placeholder="Password" name="Password" required>
-                                </div>
-                                <div class="form-group d-md-flex">
-                                    <div class="w-100 text-md-right">
-                                        <a href="#">Forgot Password</a>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn form-control btn-primary rounded submit px-3">Get Started</button>
-                                </div>
-                           
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn form-control btn-primary rounded submit px-3" id="submit">Get Started</button>
+                            </div>
+
                         }
 
                         <div class="w-100 text-center mt-4 text">
@@ -67,8 +79,15 @@
     <script src="~/AdminLTE-3.0.4/login-form-19/js/popper.js"></script>
     <script src="~/AdminLTE-3.0.4/login-form-19/js/bootstrap.min.js"></script>
     <script src="~/AdminLTE-3.0.4/login-form-19/js/main.js"></script>
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
+<script>
+    function mesaj() {
 
+        alert("merhaba javascript dünyası");
+
+    } 
+
+</script>
 

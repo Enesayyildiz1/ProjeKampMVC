@@ -31,6 +31,7 @@ namespace ProjeKampMVC.UI.Controllers
             }
             else
             {
+                ViewBag.ErrorMessage = _userService.Login(userForLoginDto).Message;
                 return View();
             }
             

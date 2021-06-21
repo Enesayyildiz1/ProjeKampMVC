@@ -152,6 +152,7 @@
     <Compile Include="Controllers\HeadingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\SkillController.cs" />
     <Compile Include="Controllers\StatisticController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2019,6 +2020,16 @@
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.min.css" />
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.min.js" />
     <Content Include="AdminLTE-3.0.4\starter.html" />
+    <Content Include="AdminLTE-3.0.4\web\css\style.css" />
+    <Content Include="AdminLTE-3.0.4\web\images\5.jpg" />
+    <Content Include="AdminLTE-3.0.4\web\images\img1.jpg" />
+    <Content Include="AdminLTE-3.0.4\web\images\sprite.png" />
+    <Content Include="AdminLTE-3.0.4\web\index.html" />
+    <Content Include="AdminLTE-3.0.4\web\js\bars.js" />
+    <Content Include="AdminLTE-3.0.4\web\js\easyResponsiveTabs.js" />
+    <Content Include="AdminLTE-3.0.4\web\js\jquery-1.11.1.min.js" />
+    <Content Include="AdminLTE-3.0.4\web\js\jquery.circlechart.js" />
+    <Content Include="AdminLTE-3.0.4\web\w3layouts-License.txt" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -2399,6 +2410,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="SS\yetenekcetveliss.PNG" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2433,10 +2445,12 @@
     <Content Include="Views\ErrorPage\Page404.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Skills\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Login\" />
+    <Folder Include="Views\Skill\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

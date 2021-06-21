@@ -26,7 +26,7 @@ namespace ProjeKampMVC.UI.Controllers
            
             return View();
         }
-        [Authorize]
+        [Authorize(Roles ="Admin")]
         public ActionResult GetAllCategory()
         {
             var model = new CategoryListViewModel

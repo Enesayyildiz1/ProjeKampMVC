@@ -78,16 +78,26 @@ namespace BusinessLayer.Concrete
             userDal.Add(user);
             return new SuccessDataResult<User>(user);
         }
-
+       
         public IDataResult<User> Login(UserForLoginDto userForLoginDto)
         {
             var user = GetByUserNameAndPassword(userForLoginDto.UserName).Data;
             if (user == null)
             {
-                return new ErrorDataResult<User>();
+                return new ErrorDataResult<User>("Kullanıcı yok");
             }
-
-            AuthenticationHelper.CreateAuthCookie(
+            
+            using (var hmac = new System.Security.Cryptography.HMACSHA512(user.PasswordSalt))
+            {
+                var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(userForLoginDto.Password));
+                for (int i = 0; i < computedHash.Length; i++)
+                {
+                    if (computedHash[i] != user.PasswordHash[i])
+                    {
+                        return new ErrorDataResult<User>("Şifreler Eşleşmiyor");
+                    }
+                }
+                 AuthenticationHelper.CreateAuthCookie(
                             new Guid(),
                             user.UserName,
                             user.Email,
@@ -96,13 +106,18 @@ namespace BusinessLayer.Concrete
                             GetUserRoles(user).Data.Select(u => u.RoleName).ToArray(),
                             false,
                             user.FirstName,
-                           user.LastName);
+                           user.LastName); 
+                return new SuccessDataResult<User>(user);
+            }
+           
             
            
 
 
 
-            return new SuccessDataResult<User>(user);
+         
         }
+
+       
     }
 }

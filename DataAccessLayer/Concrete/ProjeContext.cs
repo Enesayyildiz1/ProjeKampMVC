@@ -21,6 +21,7 @@ namespace DataAccessLayer.Concrete
         public DbSet<Content> Contents { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Heading> Headings { get; set; }
+        public DbSet<Skill> Skills { get; set; }
         public DbSet<Writer> Writers { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
