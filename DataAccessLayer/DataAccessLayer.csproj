@@ -111,6 +111,10 @@
     <Compile Include="Migrations\202106211534579_aad.Designer.cs">
       <DependentUpon>202106211534579_aad.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106222026147_writer_username.cs" />
+    <Compile Include="Migrations\202106222026147_writer_username.Designer.cs">
+      <DependentUpon>202106222026147_writer_username.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -147,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106211534579_aad.resx">
       <DependentUpon>202106211534579_aad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106222026147_writer_username.resx">
+      <DependentUpon>202106222026147_writer_username.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

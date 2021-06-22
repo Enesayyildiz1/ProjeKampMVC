@@ -1,0 +1,176 @@
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+@{
+    ViewBag.Title = "MyHeading";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+@{ string color = "";}
+@{ bool status;}
+
+<!DOCTYPE html>
+<html>
+
+<body class="hold-transition sidebar-mini">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Projects</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Proje İşlemleri</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <table id="table-heading" class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            <th style="width: 1%">
+                                #
+                            </th>
+                            <th style="width: 20%">
+                                Başlık Adı
+                            </th>
+                            <th style="width: 30%">
+                                Oluşturan Yazar
+                            </th>
+                            <th style="width: 8%" class="text-center">
+                                Kategori
+                            </th>
+                            <th style="width: 20%">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            status = item.HeadingStatus;
+                            if (item.Category.CategoryName == "Yazılım")
+                            {
+                                color = "badge badge-danger";
+
+                            }
+
+                            <tr>
+                                <td>
+                                    @item.HeadingId
+
+                                </td>
+                                <td>
+                                    <a>
+                                        @item.HeadingName
+                                    </a>
+                                    <br />
+                                    <small>
+                                        @(((DateTime)item.HeadingTime).ToString("dd-MMM-yyyy"))
+                                    </small>
+                                </td>
+                                <td>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <img style="width:50px" src="@item.Writer.WriterImage" />
+                                            @item.Writer.WriterName
+                                        </li>
+                                    </ul>
+                             </td>
+                                <td>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+
+                                            <span class="@if (color.IsEmpty())
+                                            {
+                                                color = "badge badge-info";
+
+                                            }
+                                            else
+                                            {
+                                            @color;
+                                                color = "";
+                                            }
+                                           ">@item.Category.CategoryName</span>
+                                    </li>
+
+
+                                </ul>
+
+
+
+                            </td>
+
+
+                            <td class="project-actions text-right">
+                                <a class="btn btn-primary btn-sm" href="/Content/ContentByHeading/@item.HeadingId">
+                                    <i class="fas fa-folder">
+                                    </i>
+                                    Tartışmalar
+                                </a>
+                            </td>
+                            <td>
+                                <a>
+                                    @Html.ActionLink("Düzenle", "EditHeading", "WriterPanel", new { headingId = item.HeadingId }, new { @class = "btn btn-info btn-sm" })
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+
+                                </a>
+                            <td>
+                            <td style="margin:20px">
+                                <a>
+                                    @if (status == true)
+                                    {
+                                        @Html.ActionLink("Pasif Et", "PassiveHeading", "WriterPanel", new { headingId = item.HeadingId }, new { @class = "btn btn-danger btn-sm" })
+                                    }
+                                    else
+                                    {
+                                        @Html.ActionLink("Aktif Et", "ActiveHeading", "WriterPanel", new { headingId = item.HeadingId }, new { @class = "btn btn-danger btn-sm" })
+                                    }
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Sil
+                                </a>
+                            </td>
+
+                        </tr>
+                    }
+
+
+                    </tbody>
+                    </table>
+            </div>
+            <!-- /.card-body -->
+        </div>@Html.ActionLink("Yeni Başlık Ekle", "AddHeading", "null", new { @class = "btn btn-primary" })
+        <!-- /.card -->
+    </section>
+</body>
+
+</html>
+
+<script>
+
+    $('#table-heading').DataTable({});
+
+</script>
+
+
+
+
+
+
+
+

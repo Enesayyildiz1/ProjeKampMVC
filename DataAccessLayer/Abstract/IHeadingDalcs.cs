@@ -12,5 +12,6 @@ namespace DataAccessLayer.Abstract
     public interface IHeadingDal : IEntityRepository<Heading>
     {
          List<Heading> GetHeadingClearly();
+        List<Heading> GetHeadingClearlyByWriterId(int id);
     }
 }

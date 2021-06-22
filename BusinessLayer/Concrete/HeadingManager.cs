@@ -36,6 +36,10 @@ namespace BusinessLayer.Concrete
         {
             return new SuccessDataResult<List<Heading>>(_headingDal.GetList());
         }
+        public IDataResult<List<Heading>> GetAllByWriterId(int id)
+        {
+            return new SuccessDataResult<List<Heading>>(_headingDal.GetHeadingClearlyByWriterId(id));
+        }
 
         public IDataResult<List<Heading>> GetAll2()
         {
@@ -51,6 +55,11 @@ namespace BusinessLayer.Concrete
         {
             _headingDal.Update(heading);
             return new SuccessResult("Başlık güncellendi");
+        }
+
+        public IDataResult<Heading> GetByUserName(string username)
+        {
+            return new SuccessDataResult<Heading>(_headingDal.Get(x => x.Writer.WriterUsername == username));
         }
     }
 }

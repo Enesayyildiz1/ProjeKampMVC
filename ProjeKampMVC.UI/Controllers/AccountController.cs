@@ -18,7 +18,7 @@ namespace ProjeKampMVC.UI.Controllers
         {
             return View();
         }
-        
+
         [HttpPost]
         public ActionResult Login(UserForLoginDto userForLoginDto)
         {
@@ -26,7 +26,7 @@ namespace ProjeKampMVC.UI.Controllers
 
             if (_userService.Login(userForLoginDto).Success)
             {
-                Session["userName"] = userForLoginDto.UserName;
+                Session["UserName"] = userForLoginDto.UserName;
                 return RedirectToAction("Index", "Category");
             }
             else
@@ -34,10 +34,11 @@ namespace ProjeKampMVC.UI.Controllers
                 ViewBag.ErrorMessage = _userService.Login(userForLoginDto).Message;
                 return View();
             }
-            
-          
-          
+
+
         }
+
+        
         [HttpGet]
         public ActionResult Register()
         {
