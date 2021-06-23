@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace ProjeKampMVC.UI.Controllers
 {
+    [AllowAnonymous ]
     public class AccountController : Controller
     {UserManager _userService = new UserManager(new UserDal());
         // GET: Acoount

@@ -52,9 +52,10 @@ namespace ProjeKampMVC.UI.Controllers
         public ActionResult AddHeading(Heading heading)
         {
 
-          
+            string sessionInfo = (string)Session["UserName"];
+            var authorizeWriter = _headingManager.GetByUserName(sessionInfo).Data;
             GetCategory();
-            heading.WriterId = 1;
+            heading.WriterId = authorizeWriter.WriterId;
            _headingManager.Add(heading);
            return RedirectToAction("Index","Heading");
             
@@ -72,7 +73,9 @@ namespace ProjeKampMVC.UI.Controllers
         [HttpPost]
         public ActionResult EditHeading(Heading heading)
         {
-            heading.WriterId = 1;
+            string sessionInfo = (string)Session["UserName"];
+            var authorizeWriter = _headingManager.GetByUserName(sessionInfo).Data;
+            heading.WriterId = authorizeWriter.WriterId;
             _headingManager.Update(heading);
             return RedirectToAction("Index","Heading");
         }
