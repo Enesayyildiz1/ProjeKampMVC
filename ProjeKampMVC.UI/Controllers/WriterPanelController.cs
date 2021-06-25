@@ -16,7 +16,9 @@ namespace ProjeKampMVC.UI.Controllers
     {
         // GET: WriterPanel
         HeadingManager _headingManager = new HeadingManager(new HeadingDal());
+        ContentManager _contentManager = new ContentManager(new ContentDal());
         CategoryManager _categoryManager = new CategoryManager(new CategoryDal());
+        WriterManager _writerManager = new WriterManager(new WriterDal());
        
         public ActionResult WriterProfile()
         {
@@ -26,9 +28,42 @@ namespace ProjeKampMVC.UI.Controllers
         {
           
             string sessionInfo = (string)Session["UserName"];
-            var authorizeWriter = _headingManager.GetByUserName(sessionInfo).Data;
+            var authorizeWriter = _writerManager.GetByUserName(sessionInfo).Data;
             var headings = _headingManager.GetAllByWriterId(authorizeWriter.WriterId).Data;
             return View(headings);
+        }
+        public ActionResult MyContent()
+        {
+
+            string sessionInfo = (string)Session["UserName"];
+            var authorizeWriter = _writerManager.GetByUserName(sessionInfo).Data;
+            var contents = _contentManager.GetAllByWriterId(authorizeWriter.WriterId).Data;
+            return View(contents);
+        }
+        public ActionResult AllHeading()
+        {
+            var headings = _headingManager.GetAll2();
+
+            return View(headings.Data);
+        }
+        [HttpGet]
+        public ActionResult AddContent(int id)
+        {
+            ViewBag.d = id;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddContent(Content content)
+        {
+            string sessionInfo = (string)Session["UserName"];
+            var authorizeWriter = _writerManager.GetByUserName(sessionInfo).Data;
+
+            content.ContentDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            content.WriterId = authorizeWriter.WriterId;
+            content.ContentStatus = true;
+            _contentManager.Add(content);
+            return RedirectToAction("MyContent");
+
         }
         public void GetCategory()
         {
@@ -53,7 +88,7 @@ namespace ProjeKampMVC.UI.Controllers
         {
 
             string sessionInfo = (string)Session["UserName"];
-            var authorizeWriter = _headingManager.GetByUserName(sessionInfo).Data;
+            var authorizeWriter = _writerManager.GetByUserName(sessionInfo).Data;
             GetCategory();
             heading.WriterId = authorizeWriter.WriterId;
            _headingManager.Add(heading);
@@ -74,7 +109,7 @@ namespace ProjeKampMVC.UI.Controllers
         public ActionResult EditHeading(Heading heading)
         {
             string sessionInfo = (string)Session["UserName"];
-            var authorizeWriter = _headingManager.GetByUserName(sessionInfo).Data;
+            var authorizeWriter = _writerManager.GetByUserName(sessionInfo).Data;
             heading.WriterId = authorizeWriter.WriterId;
             _headingManager.Update(heading);
             return RedirectToAction("Index","Heading");

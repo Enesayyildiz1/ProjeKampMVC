@@ -44,6 +44,11 @@ namespace BusinessLayer.Concrete
             return new SuccessDataResult<Writer>(  _writerDal.Get(x=>x.WriterId==id),"Yazar geldi");
         }
 
+        public IDataResult<Writer> GetByUserName(string username)
+        {
+            return new SuccessDataResult<Writer>(_writerDal.Get(x => x.WriterUsername == username), "Yazar geldi");
+        }
+
         public IResult Update(Writer writer)
         {
             _writerDal.Update(writer);

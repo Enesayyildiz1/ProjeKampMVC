@@ -11,7 +11,7 @@ namespace BusinessLayer.Abstract
     public interface IHeadingService
     {
         IDataResult<Heading> GetById(int id);
-        IDataResult<Heading> GetByUserName(string username);
+        
         IDataResult<List<Heading>> GetAll();
         IResult Add(Heading heading);
         IResult Delete(Heading heading);

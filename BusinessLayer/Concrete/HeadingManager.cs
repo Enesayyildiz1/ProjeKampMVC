@@ -57,9 +57,6 @@ namespace BusinessLayer.Concrete
             return new SuccessResult("Başlık güncellendi");
         }
 
-        public IDataResult<Heading> GetByUserName(string username)
-        {
-            return new SuccessDataResult<Heading>(_headingDal.Get(x => x.Writer.WriterUsername == username));
-        }
+     
     }
 }

@@ -10,12 +10,13 @@ namespace BusinessLayer.Abstract
 {
     public interface IContentService
     {
-     
+       
         IDataResult<List<Content>> GetAll();
         IResult Add(Content content);
         IResult Delete(Content content);
         IResult Update(Content content);
         IDataResult<List<Content>> GetByHeadingId(int headingId);
-        
+        IDataResult<List<Content>> GetAllByWriterId(int id);
+
     }
 }

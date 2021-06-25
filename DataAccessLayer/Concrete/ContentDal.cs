@@ -20,5 +20,13 @@ namespace DataAccessLayer.Concrete
                 return liste;
             }
         }
+        public List<Content> GetContentsByWriter(int writerId)
+        {
+            using (ProjeContext db = new ProjeContext())
+            {
+                var liste = db.Contents.Include(x => x.Writer).Where(x => x.WriterId == writerId).ToList();
+                return liste;
+            }
+        }
     }
 }

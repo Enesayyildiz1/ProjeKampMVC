@@ -36,12 +36,17 @@ namespace BusinessLayer.Concrete
             return new SuccessDataResult<List<Content>>(_contentDal.GetList(), "İçerikler listelendi");
         }
 
+        public IDataResult<List<Content>> GetAllByWriterId(int id)
+        {
+            return new SuccessDataResult<List<Content>>(_contentDal.GetContentsByWriter(id));
+        }
+
         public IDataResult<List<Content>> GetByHeadingId(int headingId)
         {
             return new SuccessDataResult<List<Content>>(_contentDal.GetContentsByHeading(headingId));
         }
 
-        
+     
 
         public IResult Update(Content content)
         {
