@@ -5,7 +5,8 @@ using EntityLayer.Concrete;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
-
+using PagedList;
+using PagedList.Mvc;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -40,11 +41,11 @@ namespace ProjeKampMVC.UI.Controllers
             var contents = _contentManager.GetAllByWriterId(authorizeWriter.WriterId).Data;
             return View(contents);
         }
-        public ActionResult AllHeading()
+        public ActionResult AllHeading(int? page)
         {
-            var headings = _headingManager.GetAll2();
+            var headings = _headingManager.GetAll2().Data.ToPagedList(page ?? 1,3);
 
-            return View(headings.Data);
+            return View(headings);
         }
         [HttpGet]
         public ActionResult AddContent(int id)
