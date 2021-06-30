@@ -21,13 +21,13 @@ namespace ProjeKampMVC.UI.Controllers
         public ActionResult Inbox()
         {
             messagesCount();
-            var list = _messageManager.GetAll();
+            var list = _messageManager.GetAll("admin@gmail.com");
             return View(list.Data);
         }
         public ActionResult SendBox()
         {
             messagesCount();
-            return View(_messageManager.GetAllSendBox().Data);
+            return View(_messageManager.GetAllSendBox("admin@gmail.com").Data);
         }
         [HttpGet]
         public ActionResult NewMessage()
@@ -105,8 +105,8 @@ ValidationResult result = validations.Validate(message);
         public void messagesCount()
         {
             ViewBag.numberOfCommunicationMessages = _contactManager.GetAll().Data.Count;
-            ViewBag.numberOfInMessages = _messageManager.GetAll().Data.Count;
-            ViewBag.numberOfSendMessages = _messageManager.GetAllSendBox().Data.Count;
+            ViewBag.numberOfInMessages = _messageManager.GetAll("admin@gmail.com").Data.Count;
+            ViewBag.numberOfSendMessages = _messageManager.GetAllSendBox("admin@gmail.com").Data.Count;
         }
         public PartialViewResult GetMessageDetails(int id)
         {

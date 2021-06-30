@@ -22,5 +22,12 @@ namespace ProjeKampMVC.UI.Controllers
             var list=_contentManager.GetByHeadingId(id);
             return View(list.Data);
         }
+        public ActionResult GetAllContent(string p)
+        {
+            var values = _contentManager.GetAll(p).Data;
+            //kolay bir getall daha hepsini çeksin parametresiz
+
+            return View(values);
+        }
     }
 }

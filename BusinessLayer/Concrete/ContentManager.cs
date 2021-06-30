@@ -31,9 +31,9 @@ namespace BusinessLayer.Concrete
             return new SuccessResult("İçerik Silindi");
         }
 
-        public IDataResult<List<Content>> GetAll()
+        public IDataResult<List<Content>> GetAll(string search)
         {
-            return new SuccessDataResult<List<Content>>(_contentDal.GetList(), "İçerikler listelendi");
+            return new SuccessDataResult<List<Content>>(_contentDal.GetList(x=>x.ContentValue.Contains(search)), "İçerikler listelendi");
         }
 
         public IDataResult<List<Content>> GetAllByWriterId(int id)

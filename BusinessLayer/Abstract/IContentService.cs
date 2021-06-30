@@ -11,7 +11,7 @@ namespace BusinessLayer.Abstract
     public interface IContentService
     {
        
-        IDataResult<List<Content>> GetAll();
+        IDataResult<List<Content>> GetAll(string search);
         IResult Add(Content content);
         IResult Delete(Content content);
         IResult Update(Content content);

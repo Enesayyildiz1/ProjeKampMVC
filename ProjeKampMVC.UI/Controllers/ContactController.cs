@@ -28,8 +28,8 @@ namespace ProjeKampMVC.UI.Controllers
         public void messagesCount()
         {
             ViewBag.numberOfCommunicationMessages = _contactManager.GetAll().Data.Count;
-            ViewBag.numberOfInMessages = _messageManager.GetAll().Data.Count;
-            ViewBag.numberOfSendMessages = _messageManager.GetAllSendBox().Data.Count;
+            ViewBag.numberOfInMessages = _messageManager.GetAll("admin@gmail.com").Data.Count;
+            ViewBag.numberOfSendMessages = _messageManager.GetAllSendBox("admin@gmail.com").Data.Count;
         }      
     }
 }

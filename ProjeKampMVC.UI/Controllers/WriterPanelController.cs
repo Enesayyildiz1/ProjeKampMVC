@@ -20,7 +20,8 @@ namespace ProjeKampMVC.UI.Controllers
         ContentManager _contentManager = new ContentManager(new ContentDal());
         CategoryManager _categoryManager = new CategoryManager(new CategoryDal());
         WriterManager _writerManager = new WriterManager(new WriterDal());
-       
+        MessageManager _messageManager = new MessageManager(new MessageDal());
+
         public ActionResult WriterProfile()
         {
             return View();
@@ -39,6 +40,22 @@ namespace ProjeKampMVC.UI.Controllers
             string sessionInfo = (string)Session["UserName"];
             var authorizeWriter = _writerManager.GetByUserName(sessionInfo).Data;
             var contents = _contentManager.GetAllByWriterId(authorizeWriter.WriterId).Data;
+            return View(contents);
+        }
+        public ActionResult MySendbox()
+        {
+
+            string sessionInfo = (string)Session["UserName"];
+            var authorizeWriter = _writerManager.GetByUserName(sessionInfo).Data;
+            var contents = _messageManager.GetAllSendBox(authorizeWriter.WriterMail).Data;
+            return View(contents);
+        }
+        public ActionResult MyInbox()
+        {
+
+            string sessionInfo = (string)Session["UserName"];
+            var authorizeWriter = _writerManager.GetByUserName(sessionInfo).Data;
+            var contents = _messageManager.GetAll(authorizeWriter.WriterMail).Data;
             return View(contents);
         }
         public ActionResult AllHeading(int? page)

@@ -31,13 +31,14 @@ namespace BusinessLayer.Concrete
             return new SuccessResult();
         }
 
-        public IDataResult<List<Message>> GetAll()
+        public IDataResult<List<Message>> GetAll(string email)
         {
-            return new SuccessDataResult<List<Message>>(_messageDal.GetList(x=>x.Receiver=="admin@gmail.com"));
+
+            return new SuccessDataResult<List<Message>>(_messageDal.GetList(x=>x.Receiver==email));
         }
-        public IDataResult<List<Message>> GetAllSendBox()
+        public IDataResult<List<Message>> GetAllSendBox(string email)
         {
-            return new SuccessDataResult<List<Message>>(_messageDal.GetList(x => x.Sender == "admin@gmail.com"));
+            return new SuccessDataResult<List<Message>>(_messageDal.GetList(x => x.Sender == email));
         }
         public IDataResult<Message> GetById(int id)
         {

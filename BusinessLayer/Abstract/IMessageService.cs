@@ -11,7 +11,8 @@ namespace BusinessLayer.Abstract
     public interface IMessageService
     {
         IDataResult<Message> GetById(int id);
-        IDataResult<List<Message>> GetAll();
+        IDataResult<List<Message>> GetAll(string email);
+        IDataResult<List<Message>> GetAllSendBox(string email);
         IResult Add(Message message);
         IResult Delete(Message message);
         IResult Update(Message message);
