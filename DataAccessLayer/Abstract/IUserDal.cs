@@ -11,6 +11,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IUserDal:IEntityRepository<User>
     {
-        List<UserRoleDto> GetUserRoles(User user);
+        List<UserRoleDto> GetUserRoles(User user=null);
     }
 }

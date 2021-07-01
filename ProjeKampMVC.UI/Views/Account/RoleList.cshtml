@@ -1,0 +1,39 @@
+﻿@using EntityLayer.DTOs
+@model List<UserRoleDto>
+@{
+    ViewBag.Title = "RoleList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <table class="table table-hover">
+        <tr>
+            <th>Id</th>
+            <th>UserName</th>
+            <th>Rol</th>
+            
+           
+            <th>Yetkisini Ekle</th>
+
+
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.UserId</td>
+                <td>@item.UserName</td>
+                <td>@item.RoleName</td>
+              
+                
+                <td><a href="#" class="btn btn-danger">Yetki Ekle</a></td>
+            </tr>
+        }
+
+    </table> <p></p>
+    <button class="btn btn-active"><a href="~/Category/AddCategory">Kategori Ekle</a></button>
+
+

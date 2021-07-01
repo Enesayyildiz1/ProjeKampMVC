@@ -6,41 +6,49 @@
 
 <!DOCTYPE html>
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
 
 <h1>Yeni Kategori Ekleme Sayfası</h1>
 </br>
 @using (Html.BeginForm("AddCategory", "Category", FormMethod.Post))
 {
-<div class="form-group">
-    @Html.Label("Kategori Adı")
-    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.CategoryName)
-    
+    <div class="form-group">
+        @Html.Label("Kategori Adı")
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CategoryName)
 
-    <br />
 
-    @Html.Label("Kategori Açıklama")
-    @Html.TextBoxFor(x => x.CategoryDescription, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.CategoryDescription)
-    <button type="submit" class="btn btn-primary">Ekle</button>
-</div>
+        <br />
+
+        @Html.Label("Kategori Açıklama")
+        @Html.TextBoxFor(x => x.CategoryDescription, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CategoryDescription)
+        <button  class="btn btn-primary" id="btn">Ekle</button>
+    </div>
 }
 @*<div style="margin:20px;">
-    <form method="post">
-        <div class="mb-3">
-            <label for="CategoryName" class="form-label">Kategori İsim</label>
-            <input type="text" class="form-control" name="CategoryName">
+        <form method="post">
+            <div class="mb-3">
+                <label for="CategoryName" class="form-label">Kategori İsim</label>
+                <input type="text" class="form-control" name="CategoryName">
 
-        </div>
-        <div class="mb-3">
-            <label for="CategoryDescription" class="form-label">Kategori Açıklama</label>
-            <input type="text" class="form-control" name="CategoryDescription">
-        </div>
-        <div class="mb-3 ">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1" name="CategoryStatus">Kategori Aktif Mi?</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Ekle</button>
-    </form>
-</div>*@
+            </div>
+            <div class="mb-3">
+                <label for="CategoryDescription" class="form-label">Kategori Açıklama</label>
+                <input type="text" class="form-control" name="CategoryDescription">
+            </div>
+            <div class="mb-3 ">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1" name="CategoryStatus">Kategori Aktif Mi?</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Ekle</button>
+        </form>
+    </div>*@
+<script>
+    $('#btn').click(function () {
+        swal("Good job!", "You clicked the button!", "success");
+    });
+    //accountcontroller yaz
+</script>

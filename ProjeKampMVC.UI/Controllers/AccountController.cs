@@ -19,6 +19,11 @@ namespace ProjeKampMVC.UI.Controllers
         {
             return View();
         }
+        public ActionResult RoleList()
+        {
+            var liste = _userService.GetRoles().Data;
+            return View(liste);
+        }
 
         [HttpPost]
         public ActionResult Login(UserForLoginDto userForLoginDto)

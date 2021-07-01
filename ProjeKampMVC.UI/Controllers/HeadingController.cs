@@ -24,6 +24,12 @@ namespace ProjeKampMVC.UI.Controllers
             
             return View(headings.Data);
         }
+        public ActionResult HeadingReport()
+        {
+            var headings = _headingManager.GetAll2();
+
+            return View(headings.Data);
+        }
         public void GetCategory()
         {
             List<SelectListItem> categories = (from category in _categoryManager.GetAll().Data

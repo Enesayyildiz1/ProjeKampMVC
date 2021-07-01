@@ -12,19 +12,37 @@ namespace DataAccessLayer.Concrete
 {
     public class UserDal : EfEntityRepositoryBase<User, ProjeContext>, IUserDal
     {
-        public List<UserRoleDto> GetUserRoles(User user)
+        public List<UserRoleDto> GetUserRoles(User user=null)
         {
-            using (ProjeContext db=new ProjeContext())
+            if (user==null)
             {
-                var liste = from ur in db.UserRoles
-                            join u in db.Users
-                            on ur.UserId equals u.Id
-                            join r in db.Roles
-                            on ur.RoleId equals r.Id
-                            where ur.UserId == user.Id
-                            select new UserRoleDto { UserId = u.Id, RoleName = r.Name, UserName = u.UserName };
-               return liste.ToList();
+                using (ProjeContext db = new ProjeContext())
+                {
+                    var liste = from ur in db.UserRoles
+                                join u in db.Users
+                                on ur.UserId equals u.Id
+                                join r in db.Roles
+                                on ur.RoleId equals r.Id
+                            
+                                select new UserRoleDto { UserId = u.Id, RoleName = r.Name, UserName = u.UserName };
+                    return liste.ToList();
                 }
+            }
+            else
+            {
+                using (ProjeContext db = new ProjeContext())
+                {
+                    var liste = from ur in db.UserRoles
+                                join u in db.Users
+                                on ur.UserId equals u.Id
+                                join r in db.Roles
+                                on ur.RoleId equals r.Id
+                                where ur.UserId == user.Id
+                                select new UserRoleDto { UserId = u.Id, RoleName = r.Name, UserName = u.UserName };
+                    return liste.ToList();
+                }
+            }
+            
         }
     }
 }

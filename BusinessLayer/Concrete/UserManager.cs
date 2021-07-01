@@ -118,6 +118,9 @@ namespace BusinessLayer.Concrete
          
         }
 
-       
+        public IDataResult<List<UserRoleDto>> GetRoles()
+        {
+            return new SuccessDataResult<List<UserRoleDto>>(userDal.GetUserRoles());
+        }
     }
 }

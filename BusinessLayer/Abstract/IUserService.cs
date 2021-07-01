@@ -11,6 +11,8 @@ namespace BusinessLayer.Abstract
 {
     public interface IUserService
     {
+        IDataResult<List<UserRoleDto>> GetUserRoles(User user);
+        IDataResult<List<UserRoleDto>> GetRoles();
         IDataResult<List<User>> GetAll();
         IDataResult<User> GetById(int id);
         IResult Add(User user);
