@@ -2074,8 +2074,17 @@
     <Content Include="AdminLTE-3.0.4\web1\webfonts\fa-solid-900.svg" />
     <Content Include="AdminLTE-3.0.4\web\css\style.css" />
     <Content Include="AdminLTE-3.0.4\web\images\5.jpg" />
+    <Content Include="AdminLTE-3.0.4\web\images\başlık ekle.PNG" />
+    <Content Include="AdminLTE-3.0.4\web\images\head.PNG" />
     <Content Include="AdminLTE-3.0.4\web\images\img1.jpg" />
+    <Content Include="AdminLTE-3.0.4\web\images\kategoriler.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\login.PNG" />
+    <Content Include="AdminLTE-3.0.4\web\images\mesajkutusu.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\pala.PNG" />
+    <Content Include="AdminLTE-3.0.4\web\images\register.PNG" />
     <Content Include="AdminLTE-3.0.4\web\images\sprite.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\vitrin.PNG" />
+    <Content Include="AdminLTE-3.0.4\web\images\yenimesajgönder.PNG" />
     <Content Include="AdminLTE-3.0.4\web\index.html" />
     <Content Include="AdminLTE-3.0.4\web\js\bars.js" />
     <Content Include="AdminLTE-3.0.4\web\js\easyResponsiveTabs.js" />

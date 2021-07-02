@@ -22,15 +22,15 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center mb-5">
-                    <h2 class="heading-section">Login #09</h2>
+                    <h2 class="heading-section">MVC Proje Kampı</h2>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-4">
                     <div class="login-wrap py-5">
                         <div class="img d-flex align-items-center justify-content-center" style="        background-image: url(/AdminLTE-3.0.4/login-form-19/images/bg.jpg);"></div>
-                        <h3 class="text-center mb-0">Welcome</h3>
-                        <p class="text-center">Sign in by entering the information below</p>
+                        <h3 class="text-center mb-0">Hoşgeldiniz</h3>
+                        <p class="text-center">Giriş yapmak için lütfen kullanıcı adı ve parolanızı girin.</p>
                         @using (Html.BeginForm("Login", "Account", FormMethod.Post))
                         {
 
@@ -56,11 +56,11 @@
                            
                             <div class="form-group d-md-flex">
                                 <div class="w-100 text-md-right">
-                                    <a href="#">Forgot Password</a>
+                                    <a href="#">Şifremi Unuttum</a>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button onclick="mesaj()" type="submit" class="btn form-control btn-primary rounded submit px-3" id="submit">Get Started</button>
+                                <button onclick="mesaj()" type="submit" class="btn form-control btn-primary rounded submit px-3" id="submit">Giriş Yap</button>
                             </div>
                            
 
@@ -68,8 +68,8 @@
                         }
 
                         <div class="w-100 text-center mt-4 text">
-                            <p class="mb-0">Don't have an account?</p>
-                            <a href="#">Sign Up</a>
+                            <p class="mb-0">Hesabınız yok mu?</p>
+                            <a href="/Account/Register">Şimdi kaydolun!</a>
                         </div>
                     </div>
                 </div>

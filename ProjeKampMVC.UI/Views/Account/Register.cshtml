@@ -28,16 +28,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <body>
     <!-- main -->
     <div class="main-w3layouts wrapper">
-        <h1>Creative SignUp Form</h1>
+        <h1>MVC Proje Kamp Kayıt Sayfası</h1>
         <div class="main-agileinfo">
             <div class="agileits-top">
                 @using (Html.BeginForm("Register", "Account", FormMethod.Post))
                 {
-                    <input class="text" type="text" name="FirstName" placeholder="First Name" required="">
-                    <input class="text" type="text" name="LastName" placeholder="Last Name" required="">
-                    <input class="text" type="text" name="UserName" placeholder="UserName" required="">
-                    <input class="text email" type="email" name="Email" placeholder="Email" required="">
-                    <input class="text" type="password" name="Password" placeholder="Password" required="">
+                    <div > <input style=" margin:auto" class="text firstname" type="text" name="FirstName" placeholder="First Name" required=""></div>
+                    <div >
+                        <input style="margin:auto" class="text lastname" type="text" name="LastName" placeholder="Last Name" required="">
+                    </div >
+                    <div style="margin:auto">
+                        <input style="margin:auto" class="text" type="text" name="UserName" placeholder="UserName" required="">
+                    </div>
+                    <div style="margin:auto">
+                        <input class="text email" type="email" name="Email" placeholder="Email" required="">
+                    </div>
+                    <div style="margin:auto">
+                        <input class="text" type="password" name="Password" placeholder="Password" required="">
+                    </div>
 
                     <div class="wthree-text">
                         <label class="anim">
