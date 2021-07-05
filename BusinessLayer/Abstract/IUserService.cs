@@ -15,6 +15,7 @@ namespace BusinessLayer.Abstract
         IDataResult<List<UserRoleDto>> GetRoles();
         IDataResult<List<User>> GetAll();
         IDataResult<User> GetById(int id);
+        IDataResult<Role> GetAllRoles();
         IResult Add(User user);
         IResult Delete(User user);
         IResult Update(User user);

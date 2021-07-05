@@ -122,5 +122,10 @@ namespace BusinessLayer.Concrete
         {
             return new SuccessDataResult<List<UserRoleDto>>(userDal.GetUserRoles());
         }
+
+        public IDataResult<Role> GetAllRoles()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,0 +1,34 @@
+﻿@model EntityLayer.Concrete.UserRole
+@{
+    ViewBag.Title = "AddRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Kategori Ekleme Sayfası</h1>
+</br>
+@using (Html.BeginForm("AddRole", "Account", FormMethod.Post))
+{
+    <div class="form-group">
+        <div>
+            @Html.Label("Kullanıcı Id")
+            @Html.TextBoxFor(x => x.UserId, new { @class = "form-control" })
+            
+
+
+        </div>
+
+
+        <div>
+
+            @Html.Label("Role")
+            @Html.DropDownListFor(x => x.RoleId, (List<SelectListItem>)ViewBag.liste, new { @class = "form-control" })
+
+        </div>
+       
+
+
+
+        <button type="submit" class="btn btn-primary" id="btn">Yetkiyi Ekle</button>
+    </div>
+}
+

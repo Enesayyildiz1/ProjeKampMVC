@@ -56,7 +56,9 @@
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDalcs.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
+    <Compile Include="Abstract\IRoleDal.cs" />
     <Compile Include="Abstract\IUserDal.cs" />
+    <Compile Include="Abstract\IUserRoleDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\AboutDal.cs" />
     <Compile Include="Concrete\CategoryDal.cs" />
@@ -65,7 +67,9 @@
     <Compile Include="Concrete\HeadingDal.cs" />
     <Compile Include="Concrete\MessageDal.cs" />
     <Compile Include="Concrete\ProjeContext.cs" />
+    <Compile Include="Concrete\RoleDal.cs" />
     <Compile Include="Concrete\UserDal.cs" />
+    <Compile Include="Concrete\UserRoleDal.cs" />
     <Compile Include="Concrete\WriterDal.cs" />
     <Compile Include="Migrations\202105211538249_m1.cs" />
     <Compile Include="Migrations\202105211538249_m1.Designer.cs">
